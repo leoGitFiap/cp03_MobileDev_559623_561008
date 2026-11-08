@@ -9,3 +9,18 @@ export interface Music {
   year: number;
   durationSec: number;
 }
+
+// a conta criada no cadastro, guardada no AsyncStorage
+export interface Account {
+  username: string;
+  password: string;
+}
+
+// o nome de cada tela do stack e o que ela recebe. undefined = não recebe nada
+export type RootStackParamList = {
+  Login: undefined;
+  Register: undefined;
+  Home: undefined;
+  List: undefined;
+  Detail: { music: Music };
+};
