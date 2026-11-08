@@ -7,7 +7,7 @@ Uma entrada por transição. Em cada uma, explico a ação usada, o que muda no 
 
 2. **Cadastro → Home (no OK do Alert):** `popToTop()` e depois `replace('Home')`. Primeiro, o `popToTop` remove o Cadastro e deixa apenas o Login. Depois, o `replace` substitui o Login pela Home. Assim, o stack fica só com a Home, e pressionar o botão voltar (no android) fecha o aplicativo, já que não faz sentido retornar ao cadastro ou ao login depois de criar a conta.
 
-3. **Login → Home:** `replace('Home')`. O Login é removido e substituído pela Home (stack: Home). Como não existe nenhuma tela anterior no stack, o botão voltar não retorna ao Login e acaba fechando o aplicativo.
+3. **Login → Home:** `replace('Home')`. O Login é removido e substituído pela Home (stack: Home). Como não existe nenhuma tela anterior no stack, pressionar o botão voltar (no android) não retorna ao Login e acaba fechando o aplicativo.
 
 4. **Home → Lista:** `navigate('List')`, na opção "Ver músicas" do álbum. A Lista abre por cima da Home, que continua no stack (Home, Lista). Ao voltar, a Lista é removida e a Home aparece como estava antes.
 
@@ -17,6 +17,6 @@ Uma entrada por transição. Em cada uma, explico a ação usada, o que muda no 
 
 7. **Detalhe → VOLTAR:** `goBack()`, no botão VOLTAR do player. Essa ação remove a tela atual e diminui o stack em uma tela. Se o usuário tiver usado PRÓXIMA MÚSICA, ele volta para a música anterior. Se estiver no primeiro Detalhe, retorna para a Lista. Funciona da mesma forma que a seta do cabeçalho e o botão voltar do Android.
 
-8. **Detalhe → INÍCIO:** `popToTop()`, no botão da casa. Essa ação remove todas as telas acima da primeira de uma só vez, independentemente de quantas músicas foram abertas. Como o Login e o Cadastro já foram removidos com `replace`, a primeira tela é a Home (stack: Home). A partir dela, apertar voltar fecha o aplicativo.
+8. **Detalhe → INÍCIO:** `popToTop()`, no botão da casa. Essa ação remove todas as telas acima da primeira de uma só vez, independentemente de quantas músicas foram abertas. Como o Login e o Cadastro já foram removidos com `replace`, a primeira tela é a Home (stack: Home). A partir dela, pressionar o botão voltar (no android) fecha o aplicativo.
 
-9. **Home → SAIR:** `clearSession()` e depois `replace('Login')`, no painel do usuário. Primeiro, a sessão é apagada do AsyncStorage. Em seguida, o `replace` remove a Home e coloca o Login no lugar (stack: Login). Como a Home não está mais no stack, o botão voltar não consegue retornar para ela e acaba fechando o aplicativo.
+9. **Home → SAIR:** `clearSession()` e depois `replace('Login')`, no painel do usuário. Primeiro, a sessão é apagada do AsyncStorage. Em seguida, o `replace` remove a Home e coloca o Login no lugar (stack: Login). Como a Home não está mais no stack, pressionar o botão voltar (no android) não consegue retornar para ela e acaba fechando o aplicativo.
